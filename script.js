@@ -18,6 +18,10 @@ addTaskButton.addEventListener("click", () => {
   console.log(newtask);
 });
 
+function renderTask(task) {
+  //render task in browser/dom
+  console.log(task);
+}
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }

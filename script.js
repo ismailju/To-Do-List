@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const addTaskButton = document.getElementById("add-task-btn");
   const todoList = document.getElementById("todo-list");
 
-  let tasks = JSON.parse(localStorage.getItem(tasks)) || [];
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.forEach((task) => renderTask(task));
   addTaskButton.addEventListener("click", () => {
     const taskText = todoInput.value.trim();
@@ -20,8 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function renderTask(task) {
-    //render task in browser/dom
-    console.log(task);
+    const li = document.createElement("li");
+    li.setAttribute("data-id", task.id);
+    li.innerHTML = `
+		<span>${task.text}</span>
+		<button>Delete</button>`;
+    todoList.appendChild(li);
   }
   function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));

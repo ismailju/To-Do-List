@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const addTaskButton = document.getElementById("add-task-btn");
   const todoList = document.getElementById("todo-list");
 
-  tasks = [];
-
+  let tasks = JSON.parse(localStorage.getItem(tasks)) || [];
+  tasks.forEach((task) => renderTask(task));
   addTaskButton.addEventListener("click", () => {
     const taskText = todoInput.value.trim();
     if (taskText === "") return;

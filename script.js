@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     tasks.push(newtask);
     saveTasks(); //added savetask to save the array into localstorage
+		renderTask(newtask);
     todoInput.value = ""; //clear the input
     console.log(newtask);
   });

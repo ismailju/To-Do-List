@@ -22,9 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderTask(task) {
     const li = document.createElement("li");
     li.setAttribute("data-id", task.id);
+    if (task.completed) li.classList.add("completed");
     li.innerHTML = `
 		<span>${task.text}</span>
 		<button>Delete</button>`;
+    li.addEventListener("click", (e) => {
+      if (e.target.tagName === "BUTTON") return;
+      li.classList.toggle("completed");
+      saveTasks();
+    });
     todoList.appendChild(li);
   }
   function saveTasks() {

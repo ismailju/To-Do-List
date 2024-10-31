@@ -14,11 +14,10 @@ addTaskButton.addEventListener("click", () => {
   };
   tasks.push(newtask);
   saveTasks(); //added savetask to save the array into localstorage
-  todoInput.value = "";//clear the input
+  todoInput.value = ""; //clear the input
   console.log(newtask);
-  
 });
 
-function saveTasks(){
-    localStorage.setItem("tasks",JSON.stringify(tasks));
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
